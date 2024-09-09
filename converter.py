@@ -43,15 +43,10 @@ def fixed(csv:str) -> str: #fixes all time values in spreadsheet
         hundreths = 1
       if hundreths < 10:
         dArray[i][4] = "0.0" + str(hundreths)
-      elif hundreths < 100:
-        dArray[i][4] = "0." + str(hundreths)
       else:
         dArray[i][4] = str(hundreths)[:-2] +"." + str(hundreths)[-2:]
     except ValueError:
       pass
-    for i in range(2, len(dArray)):
-      if round(float(dArray[i][4])*100)<round(float(dArray[i][5])*100):
-        dArray[i][5] = dArray[i][4]
   return list_to_csv(dArray)
 
 #--------------------------------------------------------------------------------------
